@@ -49,15 +49,22 @@ public class SuiteFarey {
 			F.add(this.suiteFarey.get(j).getFloat());
 		}
 		
-		for (int i=0;i<=F.size()-2;i++){
+		for (int i=0;i<F.size()-1;i++){
 			int min=i;
-			for(int j=i+1;j<F.size();j++) 
-				if (F.get(j)<F.get(min)) min=j;	
+			for(int j=i+1;j<F.size();j++) {
+				if (F.get(j)<F.get(min)) min=j;
+			}
+					
 					if (min!=i) {
 						/**permutation*/
-						Fraction f=new Fraction(suiteFarey.get(i).getNumerator(),suiteFarey.get(i).getDenominator());
-						suiteFarey.set(i, suiteFarey.get(min));
-						F.set(min, f.getFloat());
+						Fraction f=new Fraction(this.suiteFarey.get(i));
+						this.suiteFarey.set(i, this.suiteFarey.get(min));
+						suiteFarey.set(min, f);
+						
+						float x=F.get(i);
+						F.set(i, F.get(min));
+						F.set(min, x);
+						
 					}
 				}
 	}

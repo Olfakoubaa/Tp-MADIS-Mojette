@@ -15,6 +15,12 @@ public class Fraction {
 		this.denominator=denominator;
 	}
 
+	/**constructeur*/
+	public Fraction (Fraction f){
+		this.numerator=f.getNumerator();
+		this.denominator=f.getDenominator();
+	}
+	
 	public float getFloat(){
 		return this.numerator/ this.denominator;
 	}
