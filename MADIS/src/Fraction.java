@@ -28,12 +28,7 @@ public class Fraction {
 	public double calculAngle(){
 		double angle=Math.atan((double)denominator/(double) numerator);
 		if(angle<0) angle+=Math.PI;
-		return angle;
-		
-	}
-
-	public boolean estValable(int ordre){
-		return numerator <=ordre && denominator <=ordre;
+		return angle;	
 	}
 	
 	public int getNumerator() {

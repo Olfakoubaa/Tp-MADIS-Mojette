@@ -71,7 +71,19 @@ public class SuiteFarey {
 		}
 	}
 		
+	/**calcul des angles*/
+	
+
+	public ArrayList <Double> anglesDiscret(int n){
 		
+		ArrayList<Double> angles=new ArrayList <Double>();
+		
+		for (int i=0;i<this.suiteFarey.size();i++){
+			angles.add(suiteFarey.get(i).calculAngle());
+		}
+		
+		return angles;
+	}
 		
 		/**Calcul du pgcd*/
 		static int pgcd (int a, int b) { 
@@ -107,5 +119,8 @@ public class SuiteFarey {
 		}
 		return str;
 	}
+	
+	
+	
 		
 }
