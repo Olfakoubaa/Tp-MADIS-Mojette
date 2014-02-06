@@ -25,7 +25,20 @@ public class Fraction {
 		return (float)this.numerator/ this.denominator;
 	}
 	
-	public double calculAngle(){
+	public Fraction getSym(){
+		Fraction f=new Fraction(this.numerator,-1*this.denominator);
+			return f;
+		
+	}
+
+	public Fraction getSymBis(){
+		Fraction f=new Fraction(this.denominator,this.numerator);
+		return f;
+		
+	}
+	
+	
+	public double getAngle(){
 		double angle=Math.atan((double)denominator/(double) numerator);
 		if(angle<0) angle+=Math.PI;
 		return angle;	

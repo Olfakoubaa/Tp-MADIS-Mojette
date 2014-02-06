@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 /***
  * 
  * @author Olfa
@@ -79,12 +78,42 @@ public class SuiteFarey {
 		ArrayList<Double> angles=new ArrayList <Double>();
 		
 		for (int i=0;i<this.suiteFarey.size();i++){
-			angles.add(suiteFarey.get(i).calculAngle());
+			
+				angles.add(suiteFarey.get(i).getAngle());
+				
 		}
+
+
+		for (int i=0;i<this.suiteFarey.size();i++){	
+			if(!exist(angles,suiteFarey.get(i).getSym().getAngle())){
+				angles.add(suiteFarey.get(i).getSym().getAngle());
+			}
+			
+			
+			if(!exist(angles,suiteFarey.get(i).getSymBis().getAngle())){
+				angles.add(suiteFarey.get(i).getSymBis().getAngle());
+							
+			}
+
+		}
+	
 		
 		return angles;
 	}
 		
+	public boolean exist (ArrayList <Double> angles, double elem){
+		
+		boolean test=false;
+		int i=0;
+		while(i<angles.size() && !test){
+			test = elem==angles.get(i);
+			i++;
+		}
+		
+		return test;
+	}
+	
+	
 		/**Calcul du pgcd*/
 		static int pgcd (int a, int b) { 
 
@@ -107,7 +136,6 @@ public class SuiteFarey {
 		tri();
 		return suiteFarey;
 	}
-
 
 
 	@Override
