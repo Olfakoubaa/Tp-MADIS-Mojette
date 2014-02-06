@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Mojette {
@@ -7,48 +8,39 @@ public class Mojette {
 
 	
 	Mojette(int [][] image){
-
 		this.image=image;
 	}
 
-	public ArrayList <Integer> projection(int p , int q){
+	public int[]  projection(int p , int q){
+		/**nombre de bins de projection*/
+		int nb= (image.length-1)*Math.abs(p)+(image[0].length-1)*Math.abs(q)+1;
 		/**les valeurs des projections*/
-		ArrayList<Integer>tab=new ArrayList<Integer>();
-		//ligne
-		for (int i=0;i<this.image.length;i++){
-			//colonne
-			for(int j=0;j<this.image.length;j++){
-				
-				int s= this.image[i][j];				
-					
-					if (i+q>i ){	
-						int x=i+q;
-						int y=j-p;
-						while(x>=0 && x<this.image.length && y>=0 && y <this.image.length){
-						s+=this.image[x][y];
-						x=x+q;
-						y=y-p;
-					}
-				}					
-				tab.add(s);	
+		int[] tab=new int [nb];
+		/**initialiser le tableu vide*/
+		Arrays.fill(tab, 0);
+		int min=0;
+		int b;
+		for (int l=0;l<image.length;l++){
+			for (int k=0;k<image[0].length;k++){
+				b=-q*k+p*l;
+				if (b<min) min=b;
+				}
 			}
-		}
-	return tab;
-}
-				
-				/*	if(i-q <0 && j+p<this.image.length && j+p>0){
-						tab.add(this.image[i][j]);
-					}
+		
+		for (int l=0;l<image.length;l++){
+			for (int k=0;k<image[0].length;k++){
 
-//					else if(i-q>=0 && j+p < this.image.length && j+p>=0 && i-q < this.image.length){
-//						s+=this.image[i-q][j+p];
-//					}
-//					if (i-q>0 &&j+p<image.length)
-//						tab.add(s);			
+				b=-q*k+p*l+Math.abs(min);
+				tab[b]=tab[b]+image[l][k];
+				afficheVect(tab);				
 			}
+			System.out.println();
 		}
 		
-*/
+		return tab;
+	}
+	
+	
 	public int[][] getImage() {
 		return image;
 	}
@@ -58,11 +50,19 @@ public class Mojette {
 	}
 	
 	
-	public void afficheVect(ArrayList <Integer> vect ){
+	public void afficheArrayList(ArrayList <Integer> vect ){
 		
 		for (int i=0; i<vect.size();i++){
 			System.out.println( vect.get(i));
 		}
+	}
+	
+public void afficheVect(int[]vect ){
+		
+		for (int i=0; i<vect.length;i++){
+			System.out.print( vect[i]+" ");
+		}
+		System.out.println();
 	}
 	
 }
