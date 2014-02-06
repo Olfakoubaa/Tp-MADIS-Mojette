@@ -12,6 +12,7 @@ public class Mojette {
 	}
 
 	public int[]  projection(int p , int q){
+		System.out.println("projection suivant la direction ("+p+","+q+")");
 		/**nombre de bins de projection*/
 		int nb= (image.length-1)*Math.abs(p)+(image[0].length-1)*Math.abs(q)+1;
 		/**les valeurs des projections*/
@@ -31,10 +32,9 @@ public class Mojette {
 			for (int k=0;k<image[0].length;k++){
 
 				b=-q*k+p*l+Math.abs(min);
-				tab[b]=tab[b]+image[l][k];
-				afficheVect(tab);				
+				tab[b]=tab[b]+image[l][k];			
 			}
-			System.out.println();
+			
 		}
 		
 		return tab;

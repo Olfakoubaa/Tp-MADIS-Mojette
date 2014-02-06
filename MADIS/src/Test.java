@@ -17,9 +17,8 @@ public class Test {
 		
 		Mojette image=new Mojette(tabim);
 
-//		ArrayList<Integer>tab=image.projection(2,1);
-//		image.afficheVect(tab);
 		int [] t= image.projection(2,1);
+		
 		image.afficheVect(t);
 
 		}
