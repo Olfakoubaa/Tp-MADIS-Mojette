@@ -18,7 +18,7 @@ public class Test {
 		int x,h;
 		Mojette image=new Mojette(tabim);
 		
-		System.out.println ("donner la direction de projection");
+		System.out.println ("donnez la direction de projection");
 		int p=sc.nextInt();
 		int q=sc.nextInt();
 		int [] t= image.projection(p,q);
